@@ -1,0 +1,461 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #f6f6f6;
+    font-family: Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Arial;
+    color: black;
+    margin: 5px 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Styling for header */
+header {
+    background-color: black;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+header .logo-text {
+    font-family: 'Candal', serif;
+    margin: 0;
+    color: white;
+    font-size: 1.5rem;
+}
+
+header .logo-text span {
+    color: black;
+    background-color: orange;
+    padding: 0 5px;
+    border-radius: 3px;
+}
+
+/* Navigation styling */
+header ul.nav {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+header ul.nav li {
+    position: relative;
+    margin-right: 20px;
+}
+
+header ul.nav li:last-child {
+    margin-right: 0;
+}
+
+header ul.nav li a {
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    font-size: 1.1rem;
+    color: white;
+    height: 66px;
+    transition: color 0.3s;
+    position: relative;
+}
+
+header ul.nav li a:hover,
+header ul.nav li a:focus {
+    color: #ffcc00; /* Highlight color on hover */
+}
+
+header ul.nav li a::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: orange;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+header ul.nav li a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Dropdown menu styling */
+header ul.nav li ul.dropdown {
+    list-style: none;
+    position: absolute;
+    top: 66px;
+    right: 0;
+    width: 180px;
+    display: none;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    padding: 0;
+    border-radius: 3px;
+}
+
+header ul.nav li:hover ul.dropdown {
+    display: block;
+}
+
+header ul.nav li ul.dropdown li a {
+    padding: 10px;
+    background-color: black;
+    color: white;
+}
+
+header ul.nav li ul.dropdown li a.logout {
+    color: red;
+}
+
+/* Menu toggle for mobile */
+header .menu-toggle {
+    display: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* Mobile view navigation */
+@media screen and (max-width: 768px) {
+    header ul.nav {
+        flex-direction: column;
+        position: absolute;
+        top: 66px;
+        right: 0;
+        width: 100%;
+        max-width: 300px;
+        background-color: black;
+        display: none;
+    }
+
+    header ul.nav.active {
+        display: flex;
+    }
+
+    header ul.nav li {
+        width: 100%;
+    }
+
+    header .menu-toggle {
+        display: block;
+    }
+}
+
+/* Styling for section with background */
+section.home {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/90.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    color: white;
+    text-align: left; /* Ubah align dari center ke left */
+    min-height: 100vh; /* Ensure minimum height covers full viewport */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Menambahkan bayangan pada teks */
+}
+
+
+
+/* Text styling inside the home section */
+.home-text {
+    text-align: left; /* Posisi teks di sebelah kiri */
+    max-width: 600px; /* Membatasi lebar teks */
+    margin-left: 20px; /* Jarak dari tepi kiri */
+    margin-top: 50px; /* Menambahkan margin atas untuk menurunkan teks */
+}
+
+@font-face {
+    font-family: 'CustomFont';
+    src: url('img/The Billion.ttf') format('opentype');
+}
+
+
+.home-text h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+    color:orange;
+    font-family :CustomFont;
+}
+
+.home-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color :white;
+}
+
+.home-text h1 span {
+    color: white;
+}
+
+
+.home-text p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    line-height: 1.5; /* Menambah jarak antar baris */
+      font-family : Arial;
+}
+
+/* Styling for buttons */
+.buttons a {
+    text-decoration: none;
+    color: white;
+    background-color: orange;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.buttons a:hover {
+    background-color: darkorange;
+    transform: scale(1.05);
+}
+
+.buttons .btn2 {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.buttons .btn2:hover {
+    background-color: rgba(255, 165, 0, 0.8);
+}
+
+/* Responsiveness for smaller screens */
+@media screen and (max-width: 768px) {
+    .home-text {
+        margin-left: 10px;
+        padding: 20px;
+    }
+}
+
+
+/* Styling untuk section education */
+.education {
+    background-color: #000000; /* Mengubah warna latar belakang menjadi hitam */
+    padding: 60px 20px; /* Padding atas dan bawah */
+    text-align: center; /* Teks di tengah */
+}
+
+.education .main-container {
+    max-width: 1200px; /* Lebar maksimum kontainer */
+    margin: 0 auto; /* Pusatkan kontainer */
+}
+
+.education .pre-title {
+    font-size: 1.2rem;
+    color: orange; /* Warna teks untuk pre-title */
+    margin-bottom: 10px; /* Margin bawah untuk spasi */
+}
+
+.education .section-title {
+    font-size: 2.5rem; /* Ukuran font untuk judul section */
+    margin-bottom: 40px; /* Margin bawah untuk spasi */
+    color: white; /* Ubah warna teks judul menjadi putih untuk kontras dengan latar belakang hitam */
+}
+
+.grid-3 {
+    display: grid; /* Menggunakan grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 3 kolom responsif */
+    gap: 20px; /* Jarak antar item grid */
+}
+
+.education-item {
+    background-color: orange; /* Warna latar belakang item pendidikan */
+    padding: 20px; /* Padding di dalam item */
+    border-radius: 5px; /* Sudut membulat */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek kedalaman */
+    transition: transform 0.3s; /* Transisi saat hover */
+}
+
+.education-item:hover {
+    transform: translateY(-5px); /* Efek hover untuk mengangkat item */
+}
+
+.education-icon {
+    font-size: 2rem; /* Ukuran ikon */
+    color: black; /* Warna ikon */
+    margin-bottom: 10px; /* Margin bawah untuk spasi */
+}
+
+.education-item h4 {
+    font-size: 1.5rem; /* Ukuran font untuk sub-judul */
+    margin: 10px 0; /* Margin atas dan bawah */
+    color: black; /* Warna teks untuk sub-judul */
+}
+
+.education-item p {
+    font-size: 1rem; /* Ukuran font untuk deskripsi */
+    color: white; /* Warna teks untuk deskripsi */
+    line-height: 1.5; /* Jarak antar baris */
+}
+
+/* Styling untuk section Work Experience */
+.work-experience {
+    background-color: #000000; /* Warna latar belakang hitam */
+    padding: 60px 20px; /* Padding atas dan bawah */
+    text-align: center; /* Teks di tengah */
+}
+
+.work-experience .main-container {
+    max-width: 1200px; /* Lebar maksimum kontainer */
+    margin: 0 auto; /* Pusatkan kontainer */
+}
+
+.work-experience .pre-title {
+    font-size: 1.2rem; /* Ukuran font untuk pre-title */
+    color: orange; /* Warna teks untuk pre-title */
+    margin-bottom: 10px; /* Margin bawah untuk spasi */
+}
+
+.work-experience .section-title {
+    font-size: 2.5rem; /* Ukuran font untuk judul section */
+    margin-bottom: 40px; /* Margin bawah untuk spasi */
+    color: white; /* Ubah warna teks judul menjadi putih untuk kontras dengan latar belakang hitam */
+}
+
+/* Mengubah warna h3 di dalam work-experience */
+.work-experience h3 {
+    color: orange; /* Mengubah warna teks menjadi oranye */
+}
+
+/* Styling untuk kontainer pengalaman */
+.experience-container {
+    display: grid; /* Menggunakan grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Dua kolom */
+    gap: 20px; /* Jarak antar item grid */
+}
+
+/* Styling untuk setiap item pengalaman */
+.experience-item {
+    background-color: orange; /* Warna latar belakang item pengalaman */
+    padding: 20px; /* Padding di dalam item */
+    border-radius: 5px; /* Sudut membulat */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek kedalaman */
+}
+
+/* Styling untuk iframe */
+.work-experience iframe {
+    border-radius: 5px; /* Sudut membulat pada iframe */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek kedalaman */
+    margin-top: 20px; /* Jarak atas untuk spasi */
+}
+
+/* Styling untuk judul pekerjaan */
+.work-experience h4 {
+    font-size: 1.5rem; /* Ukuran font untuk sub-judul */
+    margin-top: 20px; /* Jarak atas */
+    color: black; /* Warna teks untuk sub-judul */
+}
+
+/* Styling untuk deskripsi pekerjaan */
+.work-experience p {
+    font-size: 1rem; /* Ukuran font untuk deskripsi */
+    color: white; /* Warna teks untuk deskripsi */
+    line-height: 1.5; /* Jarak antar baris */
+    margin-bottom: 10px; /* Margin bawah untuk spasi antar paragraf */
+}
+
+.hobby-container {
+    background-color: black; /* Warna latar belakang */
+    padding: 60px 20px; /* Padding atas dan bawah */
+}
+
+.hobby-container .main-container {
+    max-width: 1200px; /* Lebar maksimum kontainer */
+    margin: 0 auto; /* Pusatkan kontainer */
+    text-align: center; /* Teks di tengah */
+}
+
+.hobby-container .pre-title {
+    font-size: 1.2rem; /* Ukuran font untuk pre-title */
+    color: orange; /* Warna teks untuk pre-title */
+    margin-bottom: 10px; /* Margin bawah untuk spasi */
+}
+
+.hobby-container .section-title {
+    font-size: 2.5rem; /* Ukuran font untuk judul section */
+    margin-bottom: 10px; /* Margin bawah untuk spasi */
+    color: white; /* Mengubah warna teks menjadi putih */
+}
+
+hr {
+    border: none; /* Menghilangkan border default */
+    height: 1px; /* Tinggi garis */
+    background-color: orange; /* Warna garis */
+    margin: 20px 0; /* Margin atas dan bawah untuk spasi */
+}
+
+/* Menggunakan flexbox untuk hobi */
+.hobby-grid {
+    display: flex; /* Menggunakan flexbox layout */
+    justify-content: center; /* Pusatkan item */
+    gap: 20px; /* Jarak antar item */
+    flex-wrap: wrap; /* Membuat item membungkus ke baris baru */
+}
+
+/* Styling untuk setiap item hobi */
+.hobby-item {
+    background-color: orange; /* Warna latar belakang item hobi */
+    padding: 20px; /* Padding di dalam item */
+    border-radius: 5px; /* Sudut membulat */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek kedalaman */
+    transition: transform 0.3s; /* Transisi saat hover */
+    flex: 1 1 250px; /* Membuat item fleksibel, dengan lebar minimum 250px */
+    max-width: 300px; /* Lebar maksimum item */
+    text-align: left; /* Teks rata kiri */
+}
+
+.hobby-item:hover {
+    transform: translateY(-5px); /* Efek hover untuk mengangkat item */
+}
+
+.hobby-item h4 {
+    font-size: 1.5rem; /* Ukuran font untuk sub-judul */
+    margin: 10px 0; /* Margin atas dan bawah */
+    color: black; /* Warna te
+
+
+
+.footer-bottom p {
+    margin: 0; /* Menghilangkan margin untuk p di footer */
+    font-size: 0.9rem; /* Ukuran font yang lebih kecil */
+    text-align: center; /* Menjaga agar teks tetap di tengah */
+}
+
+.footer-bottom {
+    background-color: black; /* Warna latar belakang yang lembut */
+    padding: 10px 0; /* Memberikan padding atas dan bawah */
+}
+
+
+
+
+
+
+
+
+
+
